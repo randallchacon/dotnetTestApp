@@ -11,6 +11,7 @@ public class Program
 1. Using arrays
 2. Using arrays with LINQ
 3. Using lists
+4. Using stacks
 
 Enter your choice: ";
 
@@ -28,26 +29,15 @@ Enter your choice: ";
             case "3":
                 DSLists.UsingLists();
                 break;
+            case "4":
+                DSStacks.UsingStacks();
+                break;
             default:
                 Console.WriteLine("Invalid option");
                 break;
         }
         Console.WriteLine();
     }
-
-    public void UsingStacks()
-    {
-        //Description: Stacks are LIFO (Last-In, First-Out) collections. Think of a stack of plates: the last plate you put on is the first one you take off.
-        //Common Operations: Push (add an element to the top), Pop (remove and return the top element), Peek (return the top element without removing it).
-        //When to Use: For scenarios like undo/redo functionality, parsing expressions, managing function call stacks (recursion).
-        Stack<int> numbers = new Stack<int>();
-        numbers.Push(10);
-        numbers.Push(20);
-        numbers.Push(30);
-
-        numbers.Pop();
-    }
-
     public void UsingQueues()
     {
         //Description: Queues are FIFO (First-In, First-Out) collections. Think of a line at a store: the first person in line is the first one served.
