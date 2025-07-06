@@ -9,6 +9,7 @@ public static class DSLists
         AccessingElementsById();
         Inserting();
         Removing();
+        SearchingAndChecking();
     }
     private static void Declaring()
     {
@@ -104,11 +105,31 @@ public static class DSLists
 
     private static void SearchingAndChecking()
     {
-        //Contains
-        //IndexOf
-        //LastIndexOf
-        //Exists
-        //Find
-        //FindAll
+        Console.WriteLine("\n**Searching and Checking**\n");
+
+        List<string> students = new List<string> { "Alice", "Bob", "Charlie", "David", "Alice" };
+        Console.WriteLine($"Students list: {string.Join(", ", students)}");
+
+        // Contains(T item): Checks if an element exists in the list.
+        Console.WriteLine($"Does list contain 'Bob'? {students.Contains("Bob")}");     // Output: True
+        Console.WriteLine($"Does list contain 'Eve'? {students.Contains("Eve")}");     // Output: False
+
+        // IndexOf(T item): Returns the zero-based index of the first occurrence, or -1 if not found.
+        Console.WriteLine($"Index of 'Alice': {students.IndexOf("Alice")}");         // Output: 0
+        Console.WriteLine($"Index of 'Frank': {students.IndexOf("Frank")}");         // Output: -1
+
+        // LastIndexOf(T item): Returns the zero-based index of the last occurrence.
+        Console.WriteLine($"Last index of 'Alice': {students.LastIndexOf("Alice")}"); // Output: 4
+
+        // Exists(Predicate<T> match): Checks if any element satisfies the condition.
+        Console.WriteLine($"Are there any names starting with 'D'? {students.Exists(s => s.StartsWith("D"))}"); // Output: True
+
+        // Find(Predicate<T> match): Returns the first element that matches the condition.
+        string foundStudent = students.Find(s => s.Length > 5);
+        Console.WriteLine($"First student with name length > 5: {foundStudent}"); // Output: Charlie
+
+        // FindAll(Predicate<T> match): Returns a new List<T> containing all elements that match the condition.
+        List<string> shortNames = students.FindAll(s => s.Length <= 4);
+        Console.WriteLine($"Students with short names: {string.Join(", ", shortNames)}"); // Output: Bob, David
     }
 }
